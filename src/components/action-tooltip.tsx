@@ -4,8 +4,8 @@ import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
+  TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { TooltipTrigger } from "@radix-ui/react-tooltip";
 
 interface ActionTooltipProps {
   label: string;
@@ -14,7 +14,7 @@ interface ActionTooltipProps {
   align?: "start" | "center" | "end";
 }
 
-const ActionTooltip = ({
+export const ActionTooltip = ({
   label,
   children,
   side,
@@ -33,5 +33,3 @@ const ActionTooltip = ({
     </TooltipProvider>
   );
 };
-
-export default ActionTooltip;

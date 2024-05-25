@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
-
 import { cn } from "@/lib/utils";
-import ActionTooltip from "@/components/action-tooltip";
+
+import { ActionTooltip } from "@/components/action-tooltip";
 
 interface NavigationItemProps {
   id: string;
@@ -22,7 +22,10 @@ export const NavigationItem = ({ id, imageUrl, name }: NavigationItemProps) => {
 
   return (
     <ActionTooltip side="right" align="center" label={name}>
-      <button onClick={onClick} className="group relative flex items-center">
+      <button
+        onClick={onClick}
+        className="group relative flex items-center mb-4"
+      >
         <div
           className={cn(
             "absolute left-0 bg-primary rounded-r-full transition-all w-[4px]",
