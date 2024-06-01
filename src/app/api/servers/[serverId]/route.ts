@@ -59,8 +59,6 @@ export async function DELETE(
       },
     });
 
-    console.log("[SERVERS_ID_DELETE]", server);
-
     return NextResponse.json(server);
   } catch (error) {
     console.log("[SERVERS_ID_DELETE]", error);
