@@ -11,7 +11,7 @@ import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
 interface ChatInputProps {
-  apiUri: string;
+  apiUrl: string;
   query: Record<string, any>;
   name: string;
   type: "channel" | "conversation";
@@ -21,7 +21,7 @@ const formSchema = z.object({
   content: z.string().min(1),
 });
 
-export const ChatInput = ({ apiUri, query, name, type }: ChatInputProps) => {
+export const ChatInput = ({ apiUrl, query, name, type }: ChatInputProps) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -34,7 +34,7 @@ export const ChatInput = ({ apiUri, query, name, type }: ChatInputProps) => {
   const onSubmit = async (value: z.infer<typeof formSchema>) => {
     try {
       const url = qs.stringifyUrl({
-        url: apiUri,
+        url: apiUrl,
         query,
       });
 
