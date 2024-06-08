@@ -8,7 +8,6 @@ import {
   Loader2,
   MoreVertical,
   Shield,
-  ShieldAlert,
   ShieldCheck,
   ShieldQuestion,
 } from "lucide-react";
@@ -37,12 +36,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-
-const roleIconMap = {
-  GUEST: null,
-  MODERATOR: <ShieldCheck className="w-4 h-4 ml-2 text-indigo-500" />,
-  ADMIN: <ShieldAlert className="w-4 h-4 ml-2 text-rose-500" />,
-};
+import { roleIconMap } from "@/lib/icon-map";
 
 export const MembersModal = () => {
   const router = useRouter();

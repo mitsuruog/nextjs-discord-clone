@@ -11,6 +11,8 @@ export type MessageWithMemberWithProfile = Message & {
   member: Member & { profile: Profile };
 };
 
+export type MemberWithProfile = Member & { profile: Profile };
+
 export type NextApiResponseServerIO = NextApiResponse & {
   socket: Socket & {
     server: NetServer & {
