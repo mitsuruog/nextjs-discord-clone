@@ -54,11 +54,11 @@ export const ServerSearch = ({ data }: ServerSearchProps) => {
     setOpen(false);
 
     if (type === "member") {
-      route.push(`/servers/${params.serverId}/conversations/${id}`);
+      route.push(`/servers/${params?.serverId}/conversations/${id}`);
     }
 
     if (type === "channel") {
-      route.push(`/servers/${params.serverId}/channels/${id}`);
+      route.push(`/servers/${params?.serverId}/channels/${id}`);
     }
   };
 
