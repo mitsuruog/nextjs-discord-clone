@@ -67,7 +67,7 @@ export async function GET(req: Request) {
 
     let nextCursor = null;
     if (messages.length === MESSAGES_BATCH) {
-      nextCursor = messages[messages.length - 1].id;
+      nextCursor = messages[MESSAGES_BATCH - 1].id;
     }
 
     return NextResponse.json({
