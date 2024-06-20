@@ -34,10 +34,6 @@ export default async function handler(
       return res.status(400).json({ error: "Message ID missing" });
     }
 
-    if (!content) {
-      return res.status(400).json({ error: "Content missing" });
-    }
-
     const server = await db.server.findFirst({
       where: {
         id: serverId as string,
@@ -123,6 +119,10 @@ export default async function handler(
     }
 
     if (req.method === "PATCH") {
+      if (!content) {
+        return res.status(400).json({ error: "Content missing" });
+      }
+
       if (!isMessageOwner) {
         return res.status(401).json({ error: "Unauthorized" });
       }
