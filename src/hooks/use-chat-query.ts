@@ -6,16 +6,10 @@ import { useSocket } from "@/components/providers/socket-provider";
 interface ChatQueryProps {
   queryKey: string;
   apiUrl: string;
-  paramKey: "channelId" | "conversationId";
-  paramValue: string;
+  query: Record<string, string>;
 }
 
-export const useChatQuery = ({
-  queryKey,
-  apiUrl,
-  paramKey,
-  paramValue,
-}: ChatQueryProps) => {
+export const useChatQuery = ({ queryKey, apiUrl, query }: ChatQueryProps) => {
   const { isConnected } = useSocket();
 
   const fetchMessages = async ({ pageParam }: { pageParam: number }) => {
@@ -24,7 +18,7 @@ export const useChatQuery = ({
         url: apiUrl,
         query: {
           cursor: pageParam,
-          [paramKey]: paramValue,
+          ...query,
         },
       },
       { skipNull: true }
